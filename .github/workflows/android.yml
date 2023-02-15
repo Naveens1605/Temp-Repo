@@ -36,3 +36,10 @@ jobs:
         ~/.gradle/caches
         ~/.gradle/wrapper
        key: ${{ runner.os }}-${{ hashFiles('**/*.gradle*') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}-${{ hashFiles('**/buildSrc/**/*.kt') }}
+       
+       
+    - name: Run Ktlint
+      run: ./gradlew ktlintStagingDebugCheck
+
+    - name: Run Unit Tests
+      run: ./gradlew testStagingDebugUnitTest
